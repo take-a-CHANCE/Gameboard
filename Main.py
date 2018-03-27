@@ -1,4 +1,5 @@
 import time
+import serial
 from dotstar import Adafruit_DotStar
 
 numpixels = 30 # Number of LEDs in strip
@@ -26,4 +27,13 @@ while(1):
 
 
 def updateBoard():
+    exit()
+
+def sendUpdate():
+    exit()
+
+def recvUpdate():
+    exit()
+
+def getButtonPress():
     exit()
