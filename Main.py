@@ -3,7 +3,7 @@ import serial
 from dotstar import Adafruit_DotStar
 
 numpixels = 30 # Number of LEDs in strip
-#this is a test
+#this is a tests
 # Here's how to control the strip from any two GPIO pins:
 datapin  = 23
 clockpin = 24
