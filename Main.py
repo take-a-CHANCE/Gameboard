@@ -32,7 +32,7 @@ def updateBoard():
 def sendUpdate():
     exit()
 
-def recvUpdate():
+def recvUpdate(): 
     exit()
 
 def getButtonPress():
