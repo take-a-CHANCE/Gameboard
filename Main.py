@@ -28,6 +28,9 @@ state=1
 #   8  |   72  56  57  58  59  60  61  62  63  
 # Stat |   **  64  65  66  67  68  69  70  71  
 
+#Struucture for boats
+
+
 
 while(1):
     if(state==1):       # Waiting on input
@@ -37,15 +40,18 @@ while(1):
     if(state==3):       # send updated board
         state=1
 
-
-def updateBoard():
+# Draws the updated gameboard
+def drawBoard():
     exit()
 
+# Sends the move to the arduino to send to the other board
 def sendUpdate():
     exit()
 
+# Pull the update from the arduino 
 def recvUpdate(): 
     exit()
 
+# Get the button press for the turn from the arduino
 def getButtonPress():
     exit()
