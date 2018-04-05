@@ -8,7 +8,7 @@ gridPixels = 64 # Number of LEDs in strip
 gridDatapin  = 20
 gridClockpin = 26
 gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
-
+#testing again
 gridStrip.begin()           # Initialize pins for output
 gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
