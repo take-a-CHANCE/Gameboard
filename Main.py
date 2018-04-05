@@ -3,12 +3,12 @@ import serial
 from dotstar import Adafruit_DotStar
 
 gridPixels = 64 # Number of LEDs in strip
-#this is a test
+
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
 gridClockpin = 26
 gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
-#testing again
+
 gridStrip.begin()           # Initialize pins for output
 gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
@@ -64,7 +64,9 @@ while(1):
 
 # Draws the updated gameboard
 def drawBoard():
-    exit()
+    for i in range(0,63):
+        strip.setPixelColor(i,0xFF0000)
+    
 
 # Updates the status LEDs
 def updateStatus():
