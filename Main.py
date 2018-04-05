@@ -2,33 +2,55 @@ import time
 import serial
 from dotstar import Adafruit_DotStar
 
-numpixels = 80 # Number of LEDs in strip
+gridPixels = 64 # Number of LEDs in strip
 #this is a test
 # Here's how to control the strip from any two GPIO pins:
-datapin  = 20
-clockpin = 26
-strip    = Adafruit_DotStar(numpixels, datapin, clockpin)
+gridDatapin  = 20
+gridClockpin = 26
+gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 
-strip.begin()           # Initialize pins for output
-strip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+gridStrip.begin()           # Initialize pins for output
+gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+
+statusPixels = 16
+statusDatapin = 21
+statusClockPin = 22
+
+statusStrip = Adafruit_DotStar(statusPixels, statusDatapin, statusClockPin)
+statusStrip.begin()
+
 
 state=1
 
 # Board datastructure (array?)
 
-#  Row |    #   #   #   #   #   #   #   #   #
-#      | Status A   B   C   D   E   F   G   H     
-#   1  |   79   0   1   2   3   4   5   6   7  
-#   2  |   78   8   9  10  11  12  13  14  15  
-#   3  |   77  16  17  18  19  20  21  22  23  
-#   4  |   76  24  25  26  27  28  29  30  31  
-#   5  |   75  32  33  34  35  36  37  38  39  
-#   6  |   74  40  41  42  43  44  45  46  47  
-#   7  |   73  48  49  50  51  52  53  54  55  
-#   8  |   72  56  57  58  59  60  61  62  63  
-# Stat |   **  64  65  66  67  68  69  70  71  
+#  Row |    #   #   #   #   #   #   #   #  
+#      |    A   B   C   D   E   F   G   H     
+#   1  |    0   1   2   3   4   5   6   7  
+#   2  |    8   9  10  11  12  13  14  15  
+#   3  |   16  17  18  19  20  21  22  23  
+#   4  |   24  25  26  27  28  29  30  31  
+#   5  |   32  33  34  35  36  37  38  39  
+#   6  |   40  41  42  43  44  45  46  47  
+#   7  |   48  49  50  51  52  53  54  55  
+#   8  |   56  57  58  59  60  61  62  63  
 
-#Struucture for boats
+
+# Status datastructure
+
+#  Row |    #   #   #   #   #   #   #   #   #
+#      |  Stat  A   B   C   D   E   F   G   H     
+#   1  |    0   *   *   *   *   *   *   *   *
+#   2  |    1   *   *   *   *   *   *   *   *
+#   3  |    2   *   *   *   *   *   *   *   * 
+#   4  |    3   *   *   *   *   *   *   *   * 
+#   5  |    4   *   *   *   *   *   *   *   *
+#   6  |    5   *   *   *   *   *   *   *   * 
+#   7  |    6   *   *   *   *   *   *   *   * 
+#   8  |    7   *   *   *   *   *   *   *   *
+# Stat |    *   8   9  10  11  12  13  14  15
+
+#Structure for boats
 
 
 
