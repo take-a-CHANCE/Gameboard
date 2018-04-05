@@ -65,7 +65,7 @@ while(1):
 # Draws the updated gameboard
 def drawBoard():
     for i in range(0,63):
-        strip.setPixelColor(i,0xFF0000)
+        gridStrip.setPixelColor(i,0xFF0000)
     
 
 # Updates the status LEDs
