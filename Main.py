@@ -66,6 +66,10 @@ while(1):
 def drawBoard():
     exit()
 
+# Updates the status LEDs
+def updateStatus():
+    exit()
+
 # Sends the move to the arduino to send to the other board
 def sendUpdate():
     exit()
