@@ -65,12 +65,15 @@ while(1):
 # Draws the updated gameboard
 def drawBoard():
     for i in range(0,63):
-        gridStrip.setPixelColor(i,0xFF0000)
+        gridStrip.setPixelColor(i,255,0,0)
+    gridStrip.show()
     
 
 # Updates the status LEDs
 def updateStatus():
-    exit()
+    for i in range(0,7):
+        statusStrip.setPixelColor(i,0,0,255)
+    statusStrip.show()
 
 # Sends the move to the arduino to send to the other board
 def sendUpdate():
