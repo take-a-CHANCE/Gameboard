@@ -29,7 +29,7 @@ class Board(object):
                 #init all to blank
                 self.m_Board[i].append(Tile.Tile(tileType['empty']))
         if type == boardType["Player"] or type == boardType["Enemy"]:
-            ships = ["Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"]
+            shipType = ["Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"]
             
             #Ship Position presets for player and 'enemy'
             if type == boardType["Player"]:
@@ -38,14 +38,14 @@ class Board(object):
                 aiships = [(3,2,"v"), (9,2,"h"), (5,0,"v"), (3,6,"h"), (7,7,"v")]
 
 
-            while len(ships) > 0:
+            while len(shipType) > 0:
                 ship = aiships.pop()
-                posY = ship[0]
+                posY = ship[0]  
                 posX = ship[1]
                 orientation = ship[2]
 
             #add ship to fleet
-                self.__m_Ships.append(Ship.Ship(ships[-1], posY, posX, orientation))
+                self.__m_Ships.append(Ship.Ship(shipType[-1], posY, posX, orientation))
                 #add on map
                 size = self.__m_Ships[-1].getHitpoints
 
@@ -62,7 +62,7 @@ class Board(object):
                         self.m_Board[posY+size-1][posX].setTile(shipHull)
                     size -= 1
                 #remove last ship from ship list
-                ships.pop(-1)
+                shipType.pop(-1)
 
     def __str__(self):
         labelLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
@@ -125,9 +125,9 @@ class Board(object):
                     if (hitpoints == 0):
                         self.__m_Ships.remove(ship)
                         fleetSize = len(self.__m_Ships)
-                        if fleetSize > 0:
+                        #if fleetSize > 0:
                             #print("Ship destroyed! {} ships remaining".format(fleetSize))
                             #ship is destroyed
-                        else:
+                        #else:
                             #Game over, fleet destroyed
-                            return True
+                         #   return True
