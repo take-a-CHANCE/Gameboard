@@ -10,9 +10,9 @@ class Tile(object):
             self.__m_type = ('1', tileType['ship'])
         elif type==tileType['hit']:
             self.__m_type = ('x', tileType['hit'])
-        elif getType==tileType['miss']:
+        elif type==tileType['miss']:
             self.__m_type = ('w', tileType['miss'])
-        elif getType == tileType['hidden']:
+        elif type == tileType['hidden']:
             self.__m_type = ('0', tileType['hidden'])
 
     #report
@@ -31,19 +31,19 @@ class Tile(object):
         return rep
 
     #set
-    def setTile(self, type)
-         if type == tileType['empty']:
-            self.__m_type = ('0', TILE_TYPE['empty'])
+    def setTile(self, type):
+        if type == tileType['empty']:
+            self.__m_type = ('0', tileType['empty'])
         elif type == tileType['ship']:
-            self.__m_type = ('1', TILE_TYPE['ship'])
+            self.__m_type = ('1', tileType['ship'])
         elif type == tileType['hit']:
-            self.__m_type = ('X', TILE_TYPE['hit'])
+            self.__m_type = ('X', tileType['hit'])
         elif type == tileType['miss']:
-            self.__m_type = ('W', TILE_TYPE['miss']) 
+            self.__m_type = ('W', tileType['miss']) 
         elif type == tileType['hidden']:
-            self.__m_type = ('0', TILE_TYPE['hidden'])
+            self.__m_type = ('0', tileType['hidden'])
 
      #gets
     @property
     def getType(self):
-        return self.__m_type;
+        return self.__m_type

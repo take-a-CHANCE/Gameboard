@@ -109,7 +109,7 @@ class Board(object):
         return self.__m_Ships
 
     @property
-    def getFleetSize():
+    def getFleetSize(self):
         return len(self.__m_Ships)
 
 
