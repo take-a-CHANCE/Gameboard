@@ -6,15 +6,15 @@ gridPixels = 64 # Number of LEDs in strip
 
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
-gridClockpin = 26
+gridClockpin = 21
 gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 
 gridStrip.begin()           # Initialize pins for output
 gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
 statusPixels = 16
-statusDatapin = 21
-statusClockPin = 22
+statusDatapin = 19
+statusClockPin = 26
 
 statusStrip = Adafruit_DotStar(statusPixels, statusDatapin, statusClockPin)
 statusStrip.begin()
