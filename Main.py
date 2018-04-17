@@ -1,3 +1,6 @@
+import Game
+
+
 import time
 import serial
 from dotstar import Adafruit_DotStar
@@ -52,6 +55,14 @@ state=1
 
 #Structure for boats
 
+
+#Code to create and run game
+#def main():
+#    theGame = Game.Game()
+#    theGame.run()
+
+#if __name__ == "__main__":
+#   main()
 
 
 while(1):
