@@ -16,7 +16,7 @@ while 1:
         ser.write("test\n")
         print("Wrote data\n")
     
-    else:
+    elif ser.in_waiting>0:
         rcv=ser.readline()
         print("Received: "+rcv)
     time.sleep(0.01)
