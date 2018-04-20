@@ -13,13 +13,15 @@ sio = io.TextIOWrapper(io.BufferedRWPair(ser,ser))
 
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+
+
 while 1:
     if not GPIO.input(channel):
         ser.write("test\n")
-        print("Wrote data\n")
+        print "Wrote data\n"
     
-    elif ser.in_waiting>0:
+    elif ser.in_waiting:
         rcv=sio.readline()
-        print("Received: "+rcv)
+        print "Received: "+rcv
     time.sleep(0.01)
 
