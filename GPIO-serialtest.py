@@ -1,6 +1,7 @@
 import serial
 import RPi.GPIO as GPIO
 import time
+import io
 
 
 channel=5
@@ -8,6 +9,7 @@ channel=5
 GPIO.setmode(GPIO.BOARD)
 
 ser=serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
+sio = io.TextIOWrapper(io.BufferedRWPair(ser,ser))
 
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
@@ -17,7 +19,7 @@ while 1:
         print("Wrote data\n")
     
     elif ser.in_waiting>0:
-        rcv=ser.readline()
+        rcv=sio.readline()
         print("Received: "+rcv)
     time.sleep(0.01)
 
