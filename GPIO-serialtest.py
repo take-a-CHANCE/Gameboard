@@ -15,8 +15,9 @@ while 1:
     if not GPIO.input(channel):
         ser.write("test\n")
         print("Wrote data\n")
-    time.sleep(0.01)
+    
     else:
         rcv=ser.readline()
         print("Received: "+rcv)
+    time.sleep(0.01)
 
