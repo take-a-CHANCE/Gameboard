@@ -3,9 +3,9 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
-#define DEST_ADDRESS 1
+#define DEST_ADDRESS 2
 
-#define MY_ADDRESS 2
+#define MY_ADDRESS 1
 
 // Change to 434.0 or other frequency, must match RX's freq!
 #define RF69_FREQ 915.0
@@ -96,7 +96,7 @@ void loop(){
 
     }
 
-    if (Serial.available()>=1) //change to serial1 when using with raspbery pi
+    if (Serial1.available()>=1) //change to serial1 when using with raspbery pi
     {
         //Serial.println("Button pressed!");
         
