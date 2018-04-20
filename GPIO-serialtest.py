@@ -16,4 +16,7 @@ while 1:
         ser.write("test\n")
         print("Wrote data\n")
     time.sleep(0.01)
+    else:
+        rcv=ser.readline()
+        print("Received: "+rcv)
 

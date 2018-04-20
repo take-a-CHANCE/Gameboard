@@ -62,6 +62,7 @@ void setup(){
 
     Serial.print("RFM69 radio @");  Serial.print((int)RF69_FREQ);  Serial.println(" MHz");
 
+    Serial1.flush();
 
     delay(500);
 }
@@ -96,12 +97,12 @@ void loop(){
 
     }
 
-    if (Serial1.available()>=1) //change to serial1 when using with raspbery pi
+    if (Serial1.available()>=2) //change to serial1 when using with raspbery pi
     {
         //Serial.println("Button pressed!");
         
         char radiopacket[10];
-        int numByte= Serial.readBytesUntil('\n',radiopacket,10);
+        int numByte= Serial1.readBytesUntil('\n',radiopacket,10);
 
         Serial.print(numByte); Serial.println(" bytes");
 
@@ -124,6 +125,7 @@ void loop(){
         } else {
             Serial.println("sendtoWait failed");
         }
+        Serial1.flush();
     }
 
 
