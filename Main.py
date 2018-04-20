@@ -52,15 +52,17 @@ state=1
 
 #Structure for boats
 
+drawBoard()
 
+updateStatus()
 
-while(1):
-    if(state==1):       # Waiting on input
-        state=2
-    if(state==2):       # Process changes to board and display them
-        state=3
-    if(state==3):       # send updated board
-        state=1
+# while(1):
+#     if(state==1):       # Waiting on input
+#         state=2
+#     if(state==2):       # Process changes to board and display them
+#         state=3
+#     if(state==3):       # send updated board
+#         state=1
 
 # Draws the updated gameboard
 def drawBoard():
