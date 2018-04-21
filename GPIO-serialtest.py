@@ -17,11 +17,12 @@ GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while 1:
     if not GPIO.input(channel):
-        ser.write("test\n")
+        sio.write("test\n")
         print "Wrote data\n"
     
     elif ser.in_waiting:
         rcv=sio.readline()
         print "Received: "+rcv
-    time.sleep(0.01)
+        sio.flush()
+    time.sleep(0.1)
 

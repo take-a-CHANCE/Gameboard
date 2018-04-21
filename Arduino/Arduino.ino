@@ -102,13 +102,25 @@ void loop(){
         //Serial.println("Button pressed!");
         
         char radiopacket[10];
-        int numByte= Serial1.readBytesUntil('\n',radiopacket,10);
+        // int count = 0;
+        // while(Serial1.available() && count<10){
+        //     char read = Serial.read();
+        //     if(read!='\n'){
+        //         radiopacket[count]=Serial.read();
+        //     }
+        //     else{
+        //         break;
+        //     }
+            
+        //     count++;
+        // }
+        int count= Serial.readBytesUntil('\n',radiopacket,10);
 
-        Serial.print(numByte); Serial.println(" bytes");
+        Serial.print(count); Serial.println(" bytes");
 
         Serial.print("Sending "); Serial.println(radiopacket);
         //strlen(radiopacket)
-        if (rf69_manager.sendtoWait((uint8_t *)radiopacket, numByte , DEST_ADDRESS)) {
+        if (rf69_manager.sendtoWait((uint8_t *)radiopacket, count , DEST_ADDRESS)) {
             // Now wait for a reply from the server
             uint8_t len = sizeof(buf);
             uint8_t from;   
@@ -117,7 +129,7 @@ void loop(){
                 Serial.print("Got reply from #");
                 Serial.print(from); Serial.print(": ");
                 Serial.println((char*)buf);
-
+                Serial1.println((char*)buf);
                 
             } else {
                 Serial.println("No reply, is anyone listening?");
