@@ -17,7 +17,7 @@ GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while 1:
     if not GPIO.input(channel):
-        sio.write("test\n".encode('utf-8'))
+        sio.write('test\n'.encode('utf-8'))
         print "Wrote data\n"
     
     elif ser.in_waiting:
