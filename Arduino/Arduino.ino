@@ -103,7 +103,7 @@ void loop(){
         //Serial.println("Button pressed!");
         
         char radiopacket[10];
-        // int count = 0;
+        int count = 0;
         // while(Serial1.available() && count<10){
         //     char read = Serial.read();
         //     if(read!='\n'){
@@ -115,7 +115,7 @@ void loop(){
             
         //     count++;
         // }
-        int count= Serial.readBytesUntil('\n',radiopacket,10);
+        count= Serial.readBytesUntil('\n',radiopacket,10);
 
         Serial.print(count); Serial.println(" bytes");
 
