@@ -3,9 +3,10 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
+#define MY_ADDRESS 2
 #define DEST_ADDRESS 1
 
-#define MY_ADDRESS 2
+
 
 
 // Change to 434.0 or other frequency, must match RX's freq!
@@ -26,8 +27,8 @@ RHReliableDatagram rf69_manager(rf69, MY_ADDRESS);
 
 void setup(){
     delay(500);
-    Serial.begin(115200);
-    Serial1.begin(115200);
+    Serial.begin(9600);
+    Serial1.begin(9600);
 
     pinMode(butt, INPUT_PULLUP);
 
@@ -98,7 +99,7 @@ void loop(){
 
     }
 
-    if (Serial.available()>=2) //change to serial1 when using with raspbery pi
+    if (Serial1.available()>=2) //change to serial1 when using with raspbery pi
     {
         //Serial.println("Button pressed!");
         
@@ -115,7 +116,7 @@ void loop(){
             
         //     count++;
         // }
-        count= Serial.readBytesUntil('\n',radiopacket,10);
+        count= Serial1.readBytesUntil('\n',radiopacket,10);
 
         Serial.print(count); Serial.println(" bytes");
 
