@@ -39,8 +39,13 @@ while 1:
         rcv=ser.readline()
         print "Received: "+rcv
         sio.flush()
-        for i in range(0,63):
-            gridStrip.setPixelColor(i,0,0,255)
-        gridStrip.show()
+        if rcv == 'OK\n':
+            for i in range(0,63):
+                gridStrip.setPixelColor(i,0,255,255)
+            gridStrip.show()
+        else:
+            for i in range(0,63):
+                gridStrip.setPixelColor(i,0,0,255)
+            gridStrip.show()
     time.sleep(0.1)
 
