@@ -19,7 +19,7 @@ class Ship(object):
             self.__m_hitpoints = shipType['Submarine']
         elif type == "Destroyer":
             self.__m_type = shipType['Destroyer']
-            self.__m_hitpoints = shipType['Destroyer']
+            self.__m_hitpoints = 2
         self.__m_posY = posY
         self.__m_posX = posX
         self.__m_orientation = orientation
@@ -51,4 +51,4 @@ class Ship(object):
         return self.__m_size
     @property
     def getOrientation(self):
-        return self.__m_orientation;
+        return self.__m_orientation

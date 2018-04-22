@@ -33,11 +33,11 @@ class Board(object):
             
             #Ship Position presets for player and 'enemy'
             if type == boardType["Player"]:
-                aiships = [(0,0,"v"), (0,2,"h"), (6,0,"v"), (3,6,"v"), (0,7,"v")]
+                aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
             elif type == boardType["Enemy"]:
-                aiships = [(3,2,"v"), (9,2,"h"), (5,0,"v"), (3,6,"h"), (7,7,"v")]
+                aiships = [(3,2,"v"), (0,0,"h"), (5,0,"v"), (3,6,"h"), (6,7,"v")]
 
-
+            
             while len(shipType) > 0:
                 ship = aiships.pop()
                 posY = ship[0]  
@@ -51,7 +51,7 @@ class Board(object):
 
                 #if player show hull, if enemy hide
                 if type == boardType['Player']:
-                    shipHull = tileType['ship']
+                    shipHull = tileType['hidden']
                 else:
                     shipHull = tileType['hidden']
 
