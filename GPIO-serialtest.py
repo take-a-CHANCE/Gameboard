@@ -7,8 +7,8 @@ from dotstar import Adafruit_DotStar
 gridPixels = 30 # Number of LEDs in strip
 
 # Here's how to control the strip from any two GPIO pins:
-gridDatapin  = 28
-gridClockpin = 29
+gridDatapin  = 38
+gridClockpin = 40
 gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 
 gridStrip.begin()           # Initialize pins for output
