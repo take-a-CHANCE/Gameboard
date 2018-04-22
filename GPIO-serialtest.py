@@ -17,7 +17,7 @@ GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while 1:
     if not GPIO.input(channel):
-        ser.write('test'+'\n')
+        ser.write('test'+'\n','ascii')
         ser.flush()
         print "Wrote data\n"
     
