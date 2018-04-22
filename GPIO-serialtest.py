@@ -8,7 +8,7 @@ channel=5
 
 GPIO.setmode(GPIO.BOARD)
 
-ser=serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
+ser=serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 sio = io.TextIOWrapper(io.BufferedRWPair(ser,ser))
 
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
