@@ -22,7 +22,7 @@ while 1:
         print "Wrote data\n"
     
     elif ser.in_waiting:
-        rcv=sio.readline()
+        rcv=ser.readline()
         print "Received: "+rcv
         sio.flush()
     time.sleep(0.1)
