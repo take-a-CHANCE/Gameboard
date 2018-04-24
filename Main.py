@@ -3,9 +3,11 @@ import Game
 
 import time
 import serial
+import RPi.GPIO as GPIO
+import io
 from dotstar import Adafruit_DotStar
 
-gridPixels = 64 # Number of LEDs in strip
+gridPixels = 72 # Number of LEDs in strip
 
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
@@ -15,12 +17,16 @@ gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 gridStrip.begin()           # Initialize pins for output
 gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
-statusPixels = 16
-statusDatapin = 19
-statusClockPin = 26
+channel = 3
 
-statusStrip = Adafruit_DotStar(statusPixels, statusDatapin, statusClockPin)
-statusStrip.begin()
+GPIO.setmode(GPIO.BCM)
+
+# statusPixels = 16
+# statusDatapin = 19
+# statusClockPin = 26
+
+# statusStrip = Adafruit_DotStar(statusPixels, statusDatapin, statusClockPin)
+# statusStrip.begin()
 
 
 state=1
@@ -58,12 +64,12 @@ state=1
 drawBoard()
 
 #Code to create and run game
-#def main():
-#    theGame = Game.Game()
-#    theGame.run()
+def main():
+    theGame = Game.Game()
+    theGame.run()
 
-#if __name__ == "__main__":
-#   main()
+if __name__ == "__main__":
+   main()
 
 
 # while(1):
@@ -82,10 +88,10 @@ def drawBoard():
     
 
 # Updates the status LEDs
-def updateStatus():
-    for i in range(0,7):
-        statusStrip.setPixelColor(i,0,0,255)
-    statusStrip.show()
+# def updateStatus():
+#     for i in range(0,7):
+#         statusStrip.setPixelColor(i,0,0,255)
+#     statusStrip.show()
 
 # Sends the move to the arduino to send to the other board
 def sendUpdate():

@@ -6,9 +6,24 @@ import Tile
 import Ship
 
 import random
+import RPi.GPIO as GPIO
+
+from dotstar import Adafruit_DotStar
 
 tileType = dict(empty = 0, ship = 1, hit = 2, miss = 3, hidden = 4)
 boardType = dict(Player = 0, Enemy = 1)
+
+gridPixels = 72
+
+
+# Here's how to control the strip from any two GPIO pins:
+gridDatapin  = 20
+gridClockpin = 21
+gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+
+gridStrip.begin()           # Initialize pins for output
+gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+
 
 class Board(object):
     '''Board of tile objects'''
@@ -74,8 +89,19 @@ class Board(object):
             rep += '\n'
             rep += labelLetters[i]
             for j in range(0, self.__getWidth):
-                rep += self.m_Board[i][j].getType[0]
+                chosenTileType = self.m_Board[i][j].getType[0]
+                rep += chosenTileType
+                red = 0
+                green = 0
+                blue = 0
+                if chosenTileType == 'W':
+                    blue = 255
+                elif chosenTileType == 'X':
+                    red = 255
+                LEDNum = [i*8] + j
+                gridStrip.setPixelColor(LEDNum,red,green,blue)
         rep += '\n'
+        gridStrip.show()
         return rep
 
 
