@@ -157,9 +157,4 @@ class Board(object):
                             gridStrip.show()
                             self.__m_Ships.remove(ship)
                             fleetSize = len(self.__m_Ships)
-                            if fleetSize > 0:
-                            #print("Ship destroyed! {} ships remaining".format(fleetSize))
-                            #ship is destroyed
-                            else:
-                            #Game over, fleet destroyed
-                                return True
+                            
