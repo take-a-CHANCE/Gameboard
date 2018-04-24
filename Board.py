@@ -151,6 +151,7 @@ class Board(object):
                     #print ship.getType
                     if ship.getType == shipType['Destroyer']:
                         hitpoints = ship.getHitpoints
+                        print hitpoints
                         if (hitpoints == 1):
                             print "I'm in one"
                             gridStrip.setPixelColor(64,120,120,120)
