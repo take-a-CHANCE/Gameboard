@@ -60,11 +60,10 @@ state=1
 # Stat |    *   8   9  10  11  12  13  14  15
 
 #Structure for boats
-
-drawBoard()
-
 #Code to create and run game
 def main():
+    
+    drawBoard()
     theGame = Game.Game()
     theGame.run()
 

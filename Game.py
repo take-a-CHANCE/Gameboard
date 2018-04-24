@@ -108,9 +108,11 @@ class Game(object):
         if CtileType == tileType["empty"]:
             print("Shot Missed!")
             tile.setTile(tileType["miss"])
+            #SET LED TO MISSED COLOR
         elif CtileType == tileType["hidden"] or CtileType == tileType["ship"]:
             print("Shot Hit!")
             tile.setTile(tileType["hit"])
+            #SET LED TO HIT SHIP
             #only on player turn
             if self.__m_turn % 2 == 0:
                 #figure out what ship we hit
