@@ -31,7 +31,7 @@ while 1:
         ser.write('Drew LEDs\n'.encode('utf-8'))
         ser.flush()
         print "Wrote data\n"
-        for i in range(0,63):
+        for i in range(0,64):
             gridStrip.setPixelColor(i,255,0,0)
         gridStrip.show()
     
@@ -42,11 +42,11 @@ while 1:
         ser.flush()
         #sio.flush()
         if rcv == "OK\n":
-            for i in range(0,63):
+            for i in range(64,71):
                 gridStrip.setPixelColor(i,0,255,255)
             gridStrip.show()
         else:
-            for i in range(0,63):
+            for i in range(64,72):
                 gridStrip.setPixelColor(i,0,0,255)
             gridStrip.show()
     time.sleep(0.1)
