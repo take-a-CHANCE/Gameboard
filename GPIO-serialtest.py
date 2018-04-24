@@ -43,7 +43,8 @@ while 1:
     elif ser.in_waiting:
         rcv=ser.readline()
         print "Received: "+rcv
-        ser.write('h\n')
+        if "OK" not in rcv:
+            ser.write('h\n')
         ser.flush()
         #sio.flush()
         if count>71:

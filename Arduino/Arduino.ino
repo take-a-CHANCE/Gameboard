@@ -3,8 +3,8 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
-#define MY_ADDRESS 1 
-#define DEST_ADDRESS 2
+#define MY_ADDRESS 2 
+#define DEST_ADDRESS 1
 
 
 
@@ -89,7 +89,7 @@ void loop(){
 
             // echo last button
             char reply[5];
-            Serial1.readBytesUntil('\n',reply,5)       
+            int c = Serial1.readBytesUntil('\n',reply,5);       
             data[0] = reply[0];
             Serial1.flush();
             // Send a reply back to the originator client
