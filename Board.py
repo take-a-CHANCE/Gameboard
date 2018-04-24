@@ -10,6 +10,7 @@ import RPi.GPIO as GPIO
 
 from dotstar import Adafruit_DotStar
 
+shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destroyer = 1)
 tileType = dict(empty = 0, ship = 1, hit = 2, miss = 3, hidden = 4)
 boardType = dict(Player = 0, Enemy = 1)
 
