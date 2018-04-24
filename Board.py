@@ -99,7 +99,7 @@ class Board(object):
                 elif chosenTileType == 'X':
                     red = 255
                 LEDNum = i*8 + j
-                gridStrip.setPixelColor(LEDNum,red,green,blue)
+                gridStrip.setPixelColor(LEDNum,green,red,blue)
         rep += '\n'
         gridStrip.show()
         return rep
