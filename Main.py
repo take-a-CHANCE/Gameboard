@@ -81,8 +81,8 @@ if __name__ == "__main__":
 
 # Draws the updated gameboard
 def drawBoard():
-    for i in range(0,63):
-        gridStrip.setPixelColor(i,255,0,0)
+    for i in range(0,64):
+        gridStrip.setPixelColor(i,0x00FF00)
     gridStrip.show()
     
 
