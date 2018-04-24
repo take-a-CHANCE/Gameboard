@@ -152,11 +152,12 @@ class Board(object):
                     if ship.getType == shipType['Destroyer']:
                         hitpoints = ship.getHitpoints
                         if (hitpoints == 1):
+                            print "HIT NOCE"
                             gridStrip.setPixelColor(64,255,255,0)
                             gridStrip.show()
-                        if (hitpoints == 0):
+                        elif (hitpoints == 0):
                             gridStrip.setPixelColor(64,0,255,0)
                             gridStrip.show()
                             self.__m_Ships.remove(ship)
-                            fleetSize = len(self.__m_Ships)
+                            
                             
