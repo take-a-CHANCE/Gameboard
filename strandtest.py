@@ -36,6 +36,43 @@ head  = 0               # Index of first 'on' pixel
 tail  = -10             # Index of last 'off' pixel
 color = 0xFF0000        # 'On' color (starts red)
 
+for i in range(0,73):
+	strip.setPixelColor(i,255,0,0)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,255,255,0)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,0,255,0)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,0,255,255)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,0,0,255)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,255,0,255)
+strip.show()
+time.sleep(5)
+
+for i in range(0,73):
+	strip.setPixelColor(i,255,255,255)
+strip.show()
+time.sleep(5)
+
+
+
 while True:                              # Loop forever
 
 	strip.setPixelColor(head, color) # Turn on 'head' pixel
