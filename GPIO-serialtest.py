@@ -4,7 +4,7 @@ import time
 import io
 from dotstar import Adafruit_DotStar
 
-gridPixels = 30 # Number of LEDs in strip
+gridPixels = 72 # Number of LEDs in strip
 
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
