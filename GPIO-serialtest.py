@@ -35,7 +35,7 @@ while 1:
             count=0
         gridStrip.setPixelColor(count,255,0,0)
         gridStrip.show()
-        count++
+        count+=1
     
     elif ser.in_waiting:
         rcv=ser.readline()
@@ -47,5 +47,6 @@ while 1:
             count=0
         gridStrip.setPixelColor(count,0,0,255)
         gridStrip.show()
+        count+=1
     time.sleep(0.1)
 
