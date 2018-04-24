@@ -24,16 +24,18 @@ sio = io.TextIOWrapper(io.BufferedRWPair(ser,ser))
 
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-
+count=0
 
 while 1:
     if not GPIO.input(channel):
         ser.write('Drew LEDs\n'.encode('utf-8'))
         ser.flush()
         print "Wrote data\n"
-        for i in range(0,64):
-            gridStrip.setPixelColor(i,255,0,0)
+        if count>71:
+            count=0
+        gridStrip.setPixelColor(count,255,0,0)
         gridStrip.show()
+        count++
     
     elif ser.in_waiting:
         rcv=ser.readline()
@@ -41,13 +43,9 @@ while 1:
         ser.write('h')
         ser.flush()
         #sio.flush()
-        if rcv == "OK\n":
-            for i in range(64,71):
-                gridStrip.setPixelColor(i,0,255,255)
-            gridStrip.show()
-        else:
-            for i in range(64,72):
-                gridStrip.setPixelColor(i,0,0,255)
-            gridStrip.show()
+        if count>71:
+            count=0
+        gridStrip.setPixelColor(count,0,0,255)
+        gridStrip.show()
     time.sleep(0.1)
 
