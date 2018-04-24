@@ -3,7 +3,7 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
-#define MY_ADDRESS 2
+#define MY_ADDRESS 2 
 #define DEST_ADDRESS 1
 
 
@@ -71,7 +71,7 @@ void setup(){
 
 // Dont put this on the stack:
 uint8_t buf[RH_RF69_MAX_MESSAGE_LEN];
-uint8_t data[] = "OK";
+uint8_t data[] = "  OK";
 
 void loop(){
     if (rf69_manager.available()) {
@@ -88,7 +88,7 @@ void loop(){
             Serial1.println((char*)buf);
 
             // echo last button       
-            //data[0] = ;
+            data[0] = Serial1.read();
             // Send a reply back to the originator client
             if (!rf69_manager.sendtoWait(data, sizeof(data), from))
                 Serial.println("sendtoWait failed");

@@ -38,6 +38,7 @@ while 1:
     elif ser.in_waiting:
         rcv=ser.readline()
         print "Received: "+rcv
+        ser.write('h')
         sio.flush()
         if rcv == "OK\n":
             for i in range(0,63):
