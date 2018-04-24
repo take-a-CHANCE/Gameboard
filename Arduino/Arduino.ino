@@ -3,8 +3,8 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
-#define MY_ADDRESS 2 
-#define DEST_ADDRESS 1
+#define MY_ADDRESS 1 
+#define DEST_ADDRESS 2
 
 
 
@@ -89,6 +89,7 @@ void loop(){
 
             // echo last button       
             data[0] = Serial1.read();
+            Serial1.flush();
             // Send a reply back to the originator client
             if (!rf69_manager.sendtoWait(data, sizeof(data), from))
                 Serial.println("sendtoWait failed");

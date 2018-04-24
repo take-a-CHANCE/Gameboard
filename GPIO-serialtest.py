@@ -39,7 +39,8 @@ while 1:
         rcv=ser.readline()
         print "Received: "+rcv
         ser.write('h')
-        sio.flush()
+        ser.flush()
+        #sio.flush()
         if rcv == "OK\n":
             for i in range(0,63):
                 gridStrip.setPixelColor(i,0,255,255)
