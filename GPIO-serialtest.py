@@ -2,26 +2,58 @@ import serial
 import RPi.GPIO as GPIO
 import time
 import io
+from dotstar import Adafruit_DotStar
+
+gridPixels = 72 # Number of LEDs in strip
+
+# Here's how to control the strip from any two GPIO pins:
+gridDatapin  = 20
+gridClockpin = 21
+gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+
+gridStrip.begin()           # Initialize pins for output
+gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
 
-channel=5
+channel=3
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
-ser=serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=3.0)
+ser=serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 sio = io.TextIOWrapper(io.BufferedRWPair(ser,ser))
 
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-
+count=0
 
 while 1:
     if not GPIO.input(channel):
-        ser.write("test\n")
+        ser.write('Drew LEDs\n'.encode('utf-8'))
+        ser.flush()
         print "Wrote data\n"
+        if count>71:
+            count=0
+            for i in range(0,72):
+                gridStrip.setPixelColor(i,0,0,0)
+            gridStrip.show()
+        gridStrip.setPixelColor(count,255,0,0)
+        gridStrip.show()
+        count+=1
     
     elif ser.in_waiting:
-        rcv=sio.readline()
+        rcv=ser.readline()
         print "Received: "+rcv
-    time.sleep(0.01)
+        if "OK" not in rcv:
+            ser.write('h\n')
+        ser.flush()
+        #sio.flush()
+        if count>71:
+            count=0
+            for i in range(0,72):
+                gridStrip.setPixelColor(i,0,0,0)
+            gridStrip.show()
+        gridStrip.setPixelColor(count,0,0,255)
+        gridStrip.show()
+        count+=1
+    time.sleep(0.1)
 

@@ -3,9 +3,11 @@
 #include <RHReliableDatagram.h>
 #include <RH_RF69.h>
 
-#define DEST_ADDRESS 2
+#define MY_ADDRESS 2 
+#define DEST_ADDRESS 1
 
-#define MY_ADDRESS 1
+
+
 
 // Change to 434.0 or other frequency, must match RX's freq!
 #define RF69_FREQ 915.0
@@ -25,8 +27,8 @@ RHReliableDatagram rf69_manager(rf69, MY_ADDRESS);
 
 void setup(){
     delay(500);
-    Serial.begin(115200);
-    Serial1.begin(115200);
+    Serial.begin(9600);
+    Serial1.begin(9600);
 
     pinMode(butt, INPUT_PULLUP);
 
@@ -69,7 +71,7 @@ void setup(){
 
 // Dont put this on the stack:
 uint8_t buf[RH_RF69_MAX_MESSAGE_LEN];
-uint8_t data[] = "OK";
+uint8_t data[] = "  OK";
 
 void loop(){
     if (rf69_manager.available()) {
@@ -85,8 +87,11 @@ void loop(){
             Serial.print("RSSI: "); Serial.println(rf69.lastRssi(), DEC);
             Serial1.println((char*)buf);
 
-            // echo last button       
-            //data[0] = ;
+            // echo last button
+            char reply[5];
+            int c = Serial1.readBytesUntil('\n',reply,5);       
+            data[0] = reply[0];
+            Serial1.flush();
             // Send a reply back to the originator client
             if (!rf69_manager.sendtoWait(data, sizeof(data), from))
                 Serial.println("sendtoWait failed");
@@ -102,13 +107,25 @@ void loop(){
         //Serial.println("Button pressed!");
         
         char radiopacket[10];
-        int numByte= Serial1.readBytesUntil('\n',radiopacket,10);
+        int count = 0;
+        // while(Serial1.available() && count<10){
+        //     char read = Serial.read();
+        //     if(read!='\n'){
+        //         radiopacket[count]=Serial.read();
+        //     }
+        //     else{
+        //         break;
+        //     }
+            
+        //     count++;
+        // }
+        count= Serial1.readBytesUntil('\n',radiopacket,10);
 
-        Serial.print(numByte); Serial.println(" bytes");
+        Serial.print(count); Serial.println(" bytes");
 
         Serial.print("Sending "); Serial.println(radiopacket);
         //strlen(radiopacket)
-        if (rf69_manager.sendtoWait((uint8_t *)radiopacket, numByte , DEST_ADDRESS)) {
+        if (rf69_manager.sendtoWait((uint8_t *)radiopacket, count , DEST_ADDRESS)) {
             // Now wait for a reply from the server
             uint8_t len = sizeof(buf);
             uint8_t from;   
@@ -117,7 +134,7 @@ void loop(){
                 Serial.print("Got reply from #");
                 Serial.print(from); Serial.print(": ");
                 Serial.println((char*)buf);
-
+                Serial1.println((char*)buf);
                 
             } else {
                 Serial.println("No reply, is anyone listening?");
