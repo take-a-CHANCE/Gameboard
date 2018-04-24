@@ -152,9 +152,11 @@ class Board(object):
                     if ship.getType == shipType['Destroyer']:
                         hitpoints = ship.getHitpoints
                         if (hitpoints == 1):
+                            print "I'm in one"
                             gridStrip.setPixelColor(64,120,120,120)
                             gridStrip.show()
                         elif (hitpoints == 0):
+                            print "I'm in zero"
                             gridStrip.setPixelColor(64,0,255,0)
                             gridStrip.show()
                             self.__m_Ships.remove(ship)
