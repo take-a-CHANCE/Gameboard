@@ -4,17 +4,28 @@
 #
 import Board
 import random
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 #arduino setup
-#import serial
+import serial
 import time
 #Arduino = serial.Serial("COM3", 9600)
+
+from dotstar import Adafruit_DotStar
 
 shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destroyer = 1)
 tileType = dict(empty = 0, ship = 1, hit = 2, miss = 3, hidden = 4)
 boardType = dict(Player = 0, Enemy = 1)
 
+gridPixels = 72
 
+
+# Here's how to control the strip from any two GPIO pins:
+gridDatapin  = 20
+gridClockpin = 21
+gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+
+gridStrip.begin()           # Initialize pins for output
+gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
 
 class Game(object):
@@ -136,6 +147,16 @@ class Game(object):
                             if x == shipX:
                                 #hit
                                 CshipType = int(ship.getType)
+                                hitpoints = ship.getHitpoints
+                                if (hitpoints == 1):
+                                    print "I'm in one"
+                                    gridStrip.setPixelColor(64,120,120,120)
+                                    gridStrip.show()
+                                elif (hitpoints == 0):
+                                    print "I'm in zero"
+                                    gridStrip.setPixelColor(64,0,255,0)
+                                    gridStrip.show()
+                                    self.__m_Ships.remove(ship)
                 #when we hit, send ship info to Arduino
                 if CshipType == shipType['Destroyer']:
                     #Arduino.write("2".encode())
