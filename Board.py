@@ -148,18 +148,8 @@ class Board(object):
                 if int(y) >= ship.getY - ship.getSize and int(y) <= ship.getY + ship.getSize:
                     #found ship
                     ship.takeDamage()
-                    #print ship.getType
-                    if ship.getType == shipType['Destroyer']:
-                        hitpoints = ship.getHitpoints
-                        print hitpoints
-                        if (hitpoints == 1):
-                            print "I'm in one"
-                            gridStrip.setPixelColor(64,120,120,120)
-                            gridStrip.show()
-                        elif (hitpoints == 0):
-                            print "I'm in zero"
-                            gridStrip.setPixelColor(64,0,255,0)
-                            gridStrip.show()
+                    hitpoints = ship.getHitpoints
+                    if (hitpoints == 0):
                             self.__m_Ships.remove(ship)
                             
                             
