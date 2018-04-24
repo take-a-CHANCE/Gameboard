@@ -33,6 +33,9 @@ while 1:
         print "Wrote data\n"
         if count>71:
             count=0
+            for i in range(0,72):
+                gridStrip.setPixelColor(i,0,0,0)
+            gridStrip.show()
         gridStrip.setPixelColor(count,255,0,0)
         gridStrip.show()
         count+=1
@@ -40,11 +43,14 @@ while 1:
     elif ser.in_waiting:
         rcv=ser.readline()
         print "Received: "+rcv
-        ser.write('h')
+        ser.write('h\n')
         ser.flush()
         #sio.flush()
         if count>71:
             count=0
+            for i in range(0,72):
+                gridStrip.setPixelColor(i,0,0,0)
+            gridStrip.show()
         gridStrip.setPixelColor(count,0,0,255)
         gridStrip.show()
         count+=1

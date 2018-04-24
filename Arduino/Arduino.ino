@@ -87,8 +87,10 @@ void loop(){
             Serial.print("RSSI: "); Serial.println(rf69.lastRssi(), DEC);
             Serial1.println((char*)buf);
 
-            // echo last button       
-            data[0] = Serial1.read();
+            // echo last button
+            char reply[5];
+            Serial1.readBytesUntil('\n',reply,5)       
+            data[0] = reply[0];
             Serial1.flush();
             // Send a reply back to the originator client
             if (!rf69_manager.sendtoWait(data, sizeof(data), from))
