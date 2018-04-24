@@ -147,6 +147,7 @@ class Board(object):
                 if int(y) >= ship.getY - ship.getSize and int(y) <= ship.getY + ship.getSize:
                     #found ship
                     ship.takeDamage()
+                    print ship.getType
                     if ship.getType == "Destroyer":
                         hitpoints = ship.getHitpoints
                         if (hitpoints == 1):
