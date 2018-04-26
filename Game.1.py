@@ -184,11 +184,11 @@ class Game(object):
         #player
         if self.__m_turn % 2 == 1:
             tile = self.m_eBoard.getTile(y, x)
-            self.m_pBoard.light(y, x)
+            self.m_eBoard.light(y, x)
         #enemy
         else:
             tile = self.m_pBoard.getTile(y, x)
-            self.m_eBoard.light(y,x)
+            self.m_pBoard.light(y,x)
         CtileType = tile.getType
         CtileType = CtileType[1] if len(CtileType) > 1 else 0
 #test types
