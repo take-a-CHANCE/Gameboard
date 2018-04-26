@@ -63,13 +63,6 @@ state=1
 #Code to create and run game
 def main():
     
-    #drawBoard()
-    gridStrip.setPixelColor(64,255,0,0)
-    gridStrip.setPixelColor(65,255,0,0)
-    gridStrip.setPixelColor(66,255,0,0)
-    gridStrip.setPixelColor(67,255,0,0)
-    gridStrip.setPixelColor(68,255,0,0)
-    gridStrip.show()
     theGame = Game.Game()
     theGame.run()
 

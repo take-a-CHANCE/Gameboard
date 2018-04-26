@@ -1,3 +1,25 @@
+import RPi.GPIO as GPIO
+#arduino setup
+import serial
+import time
+#Arduino = serial.Serial("COM3", 9600)
+
+from dotstar import Adafruit_DotStar
+
+shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destroyer = 1)
+
+gridPixels = 72
+
+
+# Here's how to control the strip from any two GPIO pins:
+gridDatapin  = 20
+gridClockpin = 21
+gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+
+gridStrip.begin()           # Initialize pins for output
+gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+
+
 #
 # Ship
 #
@@ -33,6 +55,13 @@ class Ship(object):
     
     def takeDamage(self):
         self.__m_hitpoints = self.__m_hitpoints - 1 if self.__m_hitpoints > 0 else 0
+
+    def lightUp(self):
+        currentHP = self.__m_hitpoints
+        if currentHP == self.getType
+            position = self.getType + 63
+            gridStrip.setPixelColor(position,255,0,0)
+            gridStrip.show()
 
     @property
     def getType(self):

@@ -74,32 +74,19 @@ class Game(object):
             #print board and menu
             print("Player Board: \n{}".format(self.m_pBoard))
             print("Enemy Board: \n{}".format(self.m_eBoard))
-            if (self.__m_turn % 2 == 0) or self.__m_turn % 2 ==1 :
-                #this means it is Player turn
-                #uInput = raw_input()
-                uInput=1
-                if int(uInput) == 0:
-                    endgame = True
-                else:
-                    
-                    uInput = raw_input("Call your shot!(ex:C5): ")
-                    #NEEDS INPUT FROM BUTTON
-                    endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
-                    #delete input
-                    del uInput
-            #cpu turn
-            #else:
-             #   posY = random.randrange(0,7,1)
-              #  posX = random.randrange(0,7,1)
-               # endgame = self.shoot(posY, posX)
-
-            if endgame:
-                if int(uInput) != 0:
-                    print("Winner is player {}!".format((self.__m_turn % 2) + 1))
-                self.__m_brunning = False    
-                #inform Arduino that game is over
-     #           Arduino.write("0".encode())
-            else:                
+            
+            uInput=1
+            if int(uInput) == 0:
+                endgame = True
+            else:               
+                uInput = raw_input("Call your shot!(ex:C5): ")
+                #NEEDS INPUT FROM BUTTON
+                endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
+                #delete input
+                del uInput
+                if self.__m_turn % 2 == 0
+                    gridStrip.setPixelColor(70,255,0,0)
+                    gridStrip.show()              
                 self.__m_turn += 1
 
     def shoot(self, y, x):
