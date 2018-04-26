@@ -74,9 +74,6 @@ class Game(object):
             #print board and menu
             print("Player Board: \n{}".format(self.m_pBoard))
             print("Enemy Board: \n{}".format(self.m_eBoard))
-            if (self.__m_turn % 2 == 0):
-                gridStrip.setPixelColor(70, 255,0,0)
-                gridStrip.show()
             uInput=1
             if int(uInput) == 0:
                 endgame = True
@@ -87,6 +84,17 @@ class Game(object):
                 #delete input
                 del uInput    
                 self.__m_turn += 1
+            
+            if endgame:
+                print("Winner is player {}!".format((self.__m_turn % 2) + 1))
+                if (self.__m_turn % 2) + 1 == 0:
+                    gridStrip.setPixelColor(71,255,0,0)
+                else:
+                    gridStrip.setPixelColor(71,0,255,0)
+                gridStrip.show()
+                self.__m_brunning = False    
+                
+                
 
     def shoot(self, y, x):
         ended = False
