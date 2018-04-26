@@ -144,7 +144,7 @@ class Game(object):
                     trash=ser.readline()
                     settings.gridStrip.setPixelColor(69,140,255,0)
                     settings.gridStrip.setPixelColor(70,0,0,0)
-                    setting.gridStrip.show()
+                    settings.gridStrip.show()
                     while len(rcv) < 2:
                         time.sleep(.1)
                         rcv = ser.readline()          
