@@ -4,6 +4,7 @@
 #
 import Board
 import random
+import io
 import RPi.GPIO as GPIO
 #arduino setup
 import serial
@@ -20,7 +21,7 @@ gridPixels = 72
 
 GPIO.setmode(GPIO.BCM)
 
-chanList=[2,3,4,5,6,7,8,9,10,11,12,13,16,17,18,19
+chanList=[2,3,4,5,6,7,8,9,10,11,12,13,16,17,18,19]
 
 GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
