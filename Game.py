@@ -227,6 +227,7 @@ class Game(object):
                 if CshipType == shipType['Destroyer']:
                     #Arduino.write("2".encode())
                     print("hit Destroyer")
+                    self.m_eBoard.light(y,x)
                 if CshipType == shipType['Submarine']:
                     #Arduino.write("3".encode())
                     print("hit Submarine")
@@ -241,7 +242,6 @@ class Game(object):
                     print("hit Carrier")
                 #end Arduino
                 ended = self.m_eBoard.hit(y, x)
-                self.m_eBoard.light(y, x)
                 
             if self.__m_turn % 2 == 1:
                 #figure out what ship we hit
@@ -283,7 +283,6 @@ class Game(object):
                     print("hit Carrier")
                 #end Arduino
                 ended = self.m_pBoard.hit(y, x)
-                self.m_pBoard.light(y,x)
         else:
             print("Already fired there! Obvious miss!")
         return ended
