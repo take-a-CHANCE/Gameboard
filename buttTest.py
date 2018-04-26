@@ -15,14 +15,14 @@ gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
 GPIO.setmode(GPIO.BCM)
 
-chanList=[23,24,4,5,6,7,8,9]
+chanList=[2,3,4,5,6,7,8,9]
 
-GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while True:
-    if not GPIO.input(23):
+    if not GPIO.input(2):
         print "Pressed 0"
-    elif not GPIO.input(24):
+    elif not GPIO.input(3):
         print "Pressed 1"
     elif not GPIO.input(4):
         print "Pressed 2"
