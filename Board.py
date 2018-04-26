@@ -58,9 +58,9 @@ class Board(object):
             shipType = ["Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"]
             
             #Ship Position presets for player and 'enemy'
-            if socket.gethostbyname() == boardHost[0]:
+            if socket.gethostname() == boardHost[0]:
                 aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
-            elif socket.gethostbyname() == boardHost[1]:
+            elif socket.gethostname() == boardHost[1]:
                 aiships = [(3,2,"v"), (0,0,"h"), (5,0,"v"), (3,6,"h"), (6,7,"v")]
 
             
