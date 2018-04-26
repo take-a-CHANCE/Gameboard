@@ -24,5 +24,3 @@ def init():
 
     gridStrip.begin()           # Initialize pins for output
     gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
-
-    GPIO.setmode(GPIO.BCM)

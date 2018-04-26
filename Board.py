@@ -8,6 +8,8 @@ import Ship
 import random
 import RPi.GPIO as GPIO
 
+import settings
+
 import socket
 
 from dotstar import Adafruit_DotStar
@@ -18,16 +20,16 @@ boardType = dict(Player = 0, Enemy = 1)
 
 boardHost = ["RPIboard1", "RPIboard2"]
 
-gridPixels = 72
+# gridPixels = 72
 
 
 # Here's how to control the strip from any two GPIO pins:
-gridDatapin  = 20
-gridClockpin = 21
-gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+# gridDatapin  = 20
+# gridClockpin = 21
+# settings.gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 
-gridStrip.begin()           # Initialize pins for output
-gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+# settings.gridStrip.begin()           # Initialize pins for output
+# settings.gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
 GPIO.setmode(GPIO.BCM)
 
@@ -112,9 +114,9 @@ class Board(object):
                 LEDNum = i*8 + j
                 if LEDNum > 60:
                     print LEDNum
-                gridStrip.setPixelColor(LEDNum,green,red,blue)
+                settings.gridStrip.setPixelColor(LEDNum,green,red,blue)
         rep += '\n'
-        gridStrip.show()
+        settings.gridStrip.show()
         return rep
 
 
@@ -164,28 +166,28 @@ class Board(object):
                     selectShipType = ship.getType
                     if (hitpoints != selectShipType) and (hitpoints !=0):
                         if selectShipType == 1:
-                            gridStrip.setPixelColor(64,0,0,255)
+                            settings.gridStrip.setPixelColor(64,0,0,255)
                         if selectShipType == 2:
-                            gridStrip.setPixelColor(65,0,0,255)
+                            settings.gridStrip.setPixelColor(65,0,0,255)
                         if selectShipType == 3:
-                            gridStrip.setPixelColor(66,0,0,255)
+                            settings.gridStrip.setPixelColor(66,0,0,255)
                         if selectShipType == 4:
-                            gridStrip.setPixelColor(67,0,0,255)
+                            settings.gridStrip.setPixelColor(67,0,0,255)
                         if selectShipType == 5:
-                            gridStrip.setPixelColor(68,0,0,255)
-                        gridStrip.show()
+                            settings.gridStrip.setPixelColor(68,0,0,255)
+                        settings.gridStrip.show()
                     elif (hitpoints == 0):
                         if selectShipType == 1:
-                            gridStrip.setPixelColor(64,0,255,0)
+                            settings.gridStrip.setPixelColor(64,0,255,0)
                         if selectShipType == 2:
-                            gridStrip.setPixelColor(65,0,255,0)
+                            settings.gridStrip.setPixelColor(65,0,255,0)
                         if selectShipType == 3:
-                            gridStrip.setPixelColor(66,0,255,0)
+                            settings.gridStrip.setPixelColor(66,0,255,0)
                         if selectShipType == 4:
-                            gridStrip.setPixelColor(67,0,255,0)
+                            settings.gridStrip.setPixelColor(67,0,255,0)
                         if selectShipType == 5:
-                            gridStrip.setPixelColor(68,0,255,0)
-                        gridStrip.show()
+                            settings.gridStrip.setPixelColor(68,0,255,0)
+                        settings.gridStrip.show()
                         self.__m_Ships.remove(ship)
                         fleetSize = len(self.__m_Ships)
                         if fleetSize == 0:
