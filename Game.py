@@ -131,9 +131,11 @@ class Game(object):
                 if self.__m_turn % 2 == 0:
                     uInput = vButton + hButton 
                 else:
-                      rcv=ser.readline() 
-                      ser.flush()
-                      uInput = rcv
+                    while not ser.in_waiting
+                        time.sleep(.1)          
+                    rcv = ser.readline()
+                    ser.flush()
+                    uInput = rcv
                 #     uInput = raw_input("Call your shot!(ex:C5): ")
                 #NEEDS INPUT FROM BUTTON
                 endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
