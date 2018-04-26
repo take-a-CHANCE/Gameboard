@@ -118,7 +118,7 @@ class Game(object):
                         vButton = "G"
                     elif not GPIO.input(19):
                         vButton = "H"    
-                    time.sleep(0.5)
+                    time.sleep(0.1)
                     print (vButton + hButton)
                     
             uInput=1
