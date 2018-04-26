@@ -131,9 +131,11 @@ class Game(object):
                 if self.__m_turn % 2 == 0:
                     uInput = vButton + hButton 
                 else:
-                    while not ser.in_waiting:
-                        time.sleep(.1)          
-                    rcv = ser.readline()
+                    ser.flush()
+                    rcv = ""
+                    while len(rcv) < 2:
+                        time.sleep(.1)
+                        rcv = ser.readline()          
                     ser.flush()
                     uInput = rcv
                 #     uInput = raw_input("Call your shot!(ex:C5): ")
