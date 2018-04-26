@@ -69,6 +69,7 @@ def main():
     gridStrip.setPixelColor(66,255,0,0)
     gridStrip.setPixelColor(67,255,0,0)
     gridStrip.setPixelColor(68,255,0,0)
+    gridStrip.show()
     theGame = Game.Game()
     theGame.run()
 
