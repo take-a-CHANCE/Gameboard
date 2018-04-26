@@ -36,4 +36,4 @@ while True:
         print "Pressed 6"
     elif not GPIO.input(9):
         print "Pressed 7"
-    time.sleep(0.05)
+    time.sleep(0.1)
