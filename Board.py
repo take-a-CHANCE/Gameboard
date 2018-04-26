@@ -16,6 +16,8 @@ shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destro
 tileType = dict(empty = 0, ship = 1, hit = 2, miss = 3, hidden = 4)
 boardType = dict(Player = 0, Enemy = 1)
 
+boardHost = ["RPIboard1", "RPIboard2"]
+
 gridPixels = 72
 
 
@@ -56,9 +58,9 @@ class Board(object):
             shipType = ["Carrier", "Battleship", "Cruiser", "Submarine", "Destroyer"]
             
             #Ship Position presets for player and 'enemy'
-            if type == boardType["Player"]:
+            if socket.gethostbyname() == boardHost[0]:
                 aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
-            elif type == boardType["Enemy"]:
+            elif socket.gethostbyname() == boardHost[1]:
                 aiships = [(3,2,"v"), (0,0,"h"), (5,0,"v"), (3,6,"h"), (6,7,"v")]
 
             
