@@ -4,6 +4,7 @@
 #
 import Board
 import random
+import io
 import RPi.GPIO as GPIO
 #arduino setup
 import serial
