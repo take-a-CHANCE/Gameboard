@@ -7,26 +7,8 @@ import RPi.GPIO as GPIO
 import io
 from dotstar import Adafruit_DotStar
 
-gridPixels = 72 # Number of LEDs in strip
 
-# Here's how to control the strip from any two GPIO pins:
-gridDatapin  = 20
-gridClockpin = 21
-gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
-
-gridStrip.begin()           # Initialize pins for output
-gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
-
-channel = 3
-
-GPIO.setmode(GPIO.BCM)
-
-# statusPixels = 16
-# statusDatapin = 19
-# statusClockPin = 26
-
-# statusStrip = Adafruit_DotStar(statusPixels, statusDatapin, statusClockPin)
-# statusStrip.begin()
+import settings
 
 
 state=1
@@ -62,7 +44,7 @@ state=1
 #Structure for boats
 #Code to create and run game
 def main():
-    
+    settings.init()
     theGame = Game.Game()
     theGame.run()
 

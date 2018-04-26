@@ -12,13 +12,14 @@ import time
 #Arduino = serial.Serial("COM3", 9600)
 import socket
 
+import settings
 from dotstar import Adafruit_DotStar
 
 shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destroyer = 1)
 tileType = dict(empty = 0, ship = 1, hit = 2, miss = 3, hidden = 4)
 boardType = dict(Player = 0, Enemy = 1)
 
-gridPixels = 72
+# gridPixels = 72
 
 GPIO.setmode(GPIO.BCM)
 
@@ -30,12 +31,13 @@ GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 ser=serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 
 # Here's how to control the strip from any two GPIO pins:
-gridDatapin  = 20
-gridClockpin = 21
-gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
+# gridDatapin  = 20
+# gridClockpin = 21
+# settings.gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 
-gridStrip.begin()           # Initialize pins for output
-gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+# settings.gridStrip.begin()           # Initialize pins for output
+# settings.gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
+
 
 
 class Game(object):
@@ -87,8 +89,8 @@ class Game(object):
             hButton = ""
             vButton = ""
             if self.__m_turn % 2 == 0:
-                gridStrip.setPixelColor(70,0,255,127)
-                gridStrip.show()
+                settings.gridStrip.setPixelColor(70,0,255,200)
+                settings.gridStrip.show()
                 while len(hButton + vButton) < 2:
                     if not GPIO.input(2):
                         hButton = '0'
@@ -140,8 +142,8 @@ class Game(object):
                     rcv = ""
                     trash=ser.readline()
                     while len(rcv) < 2:
-                        gridStrip.setPixelColor(69,0,255,127)
-                        gridStrip.show()
+                        settings.gridStrip.setPixelColor(69,0,255,200)
+                        settings.gridStrip.show()
                         time.sleep(.1)
                         rcv = ser.readline()          
                         print "test"
@@ -164,10 +166,10 @@ class Game(object):
                 ser.write("!!!\n!!!\n")
                 ser.flush()
                 if winGame:
-                    gridStrip.setPixelColor(71,255,0,0)
+                    settings.gridStrip.setPixelColor(71,255,0,0)
                 else:
-                    gridStrip.setPixelColor(71,0,255,0)
-                gridStrip.show()
+                    settings.gridStrip.setPixelColor(71,0,255,0)
+                settings.gridStrip.show()
                 self.__m_brunning = False    
                 
                 
