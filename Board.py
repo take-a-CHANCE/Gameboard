@@ -165,17 +165,6 @@ class Board(object):
                     hitpoints = ship.getHitpoints
                     selectShipType = ship.getType
                     if (hitpoints == 0):
-                        if selectShipType == 1:
-                            settings.gridStrip.setPixelColor(64,0,255,0)
-                        if selectShipType == 2:
-                            settings.gridStrip.setPixelColor(65,0,255,0)
-                        if selectShipType == 3:
-                            settings.gridStrip.setPixelColor(66,0,255,0)
-                        if selectShipType == 4:
-                            settings.gridStrip.setPixelColor(67,0,255,0)
-                        if selectShipType == 5:
-                            settings.gridStrip.setPixelColor(68,0,255,0)
-                        settings.gridStrip.show()
                         self.__m_Ships.remove(ship)
                         fleetSize = len(self.__m_Ships)
                         if fleetSize == 0:
