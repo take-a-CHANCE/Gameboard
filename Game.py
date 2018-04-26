@@ -121,7 +121,7 @@ class Game(object):
                         vButton = "H"    
                     time.sleep(0.1)
                 #inform other board of move
-                ser.write(hButton+vButton+'\n')
+                ser.write(vButton+hButton+'\n')
                 ser.flush()
                     
             uInput=1
