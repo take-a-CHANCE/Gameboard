@@ -126,6 +126,7 @@ class Game(object):
                 ser.flush()
                     
             uInput=1
+            endgame = False
             if int(uInput) == 0:
                 endgame = True
             else:           
