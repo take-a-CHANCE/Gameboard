@@ -127,6 +127,7 @@ class Game(object):
                     
             uInput=1
             endgame = False
+            winGame = True
             if int(uInput) == 0:
                 endgame = True
             else:           
@@ -143,9 +144,11 @@ class Game(object):
                         print rcv
                     ser.flush()
                     if "!" in rcv:
+                        winGame = False
                         endgame = True
                     uInput = rcv
                     uInput = rcv[:2]
+                    
 
                 if not endgame:
                     endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
@@ -156,7 +159,7 @@ class Game(object):
             if endgame:
                 ser.write("!!!\n!!!\n")
                 ser.flush()
-                if (self.__m_turn % 2) == 1:
+                if winGame:
                     gridStrip.setPixelColor(71,255,0,0)
                 else:
                     gridStrip.setPixelColor(71,0,255,0)
