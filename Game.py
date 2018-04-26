@@ -18,6 +18,12 @@ boardType = dict(Player = 0, Enemy = 1)
 
 gridPixels = 72
 
+GPIO.setmode(GPIO.BCM)
+
+chanList=[2,3,4,5,6,7,8,9]
+
+GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
@@ -74,6 +80,25 @@ class Game(object):
             #print board and menu
             print("Player Board: \n{}".format(self.m_pBoard))
             print("Enemy Board: \n{}".format(self.m_eBoard))
+            hButton = 8
+            if self.__m_turn % 2 == 0:
+                while True:
+                    if not GPIO.input(2):   
+                    elif not GPIO.input(3):
+                        print "Pressed 1"
+                    elif not GPIO.input(4):
+                        print "Pressed 2"
+                    elif not GPIO.input(5):
+                        print "Pressed 3"
+                    elif not GPIO.input(6):
+                        print "Pressed 4"
+                    elif not GPIO.input(7):
+                        print "Pressed 5"
+                    elif not GPIO.input(8):
+                        print "Pressed 6"
+                    elif not GPIO.input(9):
+                        print "Pressed 7"
+                    time.sleep(0.1)
             uInput=1
             if int(uInput) == 0:
                 endgame = True
@@ -122,7 +147,7 @@ class Game(object):
             if self.__m_turn % 2 == 0:
                 #figure out what ship we hit
                 CshipType = 0
-
+                ended = self.m_eBoard.hit(y, x)
                 for ship in self.m_eBoard.getFleet():
                     shipX = int(ship.getX)
                     shipY = int(ship.getY)
@@ -158,7 +183,7 @@ class Game(object):
                     #Arduino.write("6".encode())
                     print("hit Carrier")
                 #end Arduino
-                ended = self.m_eBoard.hit(y, x)
+                
             if self.__m_turn % 2 == 1:
                 #figure out what ship we hit
                 CshipType = 0

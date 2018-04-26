@@ -25,6 +25,12 @@ gridStrip    = Adafruit_DotStar(gridPixels, gridDatapin, gridClockpin)
 gridStrip.begin()           # Initialize pins for output
 gridStrip.setBrightness(64) # Limit brightness to ~1/4 duty cycle
 
+GPIO.setmode(GPIO.BCM)
+
+chanList=[2,3,4,5,6,7,8,9]
+
+GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 
 class Board(object):
     '''Board of tile objects'''

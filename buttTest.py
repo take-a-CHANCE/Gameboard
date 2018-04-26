@@ -36,4 +36,20 @@ while True:
         print "Pressed 6"
     elif not GPIO.input(9):
         print "Pressed 7"
+    elif not GPIO.input(10):
+        print "Pressed A"
+    elif not GPIO.input(11):
+        print "Pressed B"
+    elif not GPIO.input(12):
+        print "Pressed C"
+    elif not GPIO.input(13):
+        print "Pressed D"
+    elif not GPIO.input(16):
+        print "Pressed E"
+    elif not GPIO.input(17):
+        print "Pressed F"
+    elif not GPIO.input(18):
+        print "Pressed G"
+    elif not GPIO.input(19):
+        print "Pressed H"    
     time.sleep(0.1)
