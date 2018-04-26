@@ -191,7 +191,7 @@ class Game(object):
                     #Arduino.write("6".encode())
                     print("hit Carrier")
                 #end Arduino
-            ended = self.m_eBoard.hit(y, x)
+            ended = self.m_pBoard.hit(y, x)
         else:
             print("Already fired there! Obvious miss!")
         return ended
