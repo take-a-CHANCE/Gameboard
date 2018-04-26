@@ -133,6 +133,7 @@ class Game(object):
                 else:
                     ser.flush()
                     rcv = ""
+                    trash=ser.readline()
                     while len(rcv) < 2:
                         time.sleep(1)
                         rcv = ser.readline()          
