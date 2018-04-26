@@ -28,9 +28,10 @@ count=0
 
 while 1:
     if not GPIO.input(channel):
-        ser.write('A0\n'.encode('utf-8'))
+        snt="A0"
+        ser.write(snt+'\n'.encode('utf-8'))
         ser.flush()
-        print "Wrote data\n"
+        print "Wrote" + snt+ "\n"
         if count>71:
             count=0
             for i in range(0,72):
