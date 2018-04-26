@@ -83,40 +83,39 @@ class Game(object):
             hButton = ""
             vButton = ""
             if self.__m_turn % 2 == 0:
-                while True:
-                    if not GPIO.input(2):
-                        hButton = '0'   
-                    elif not GPIO.input(3):
-                        hButton = '1'
-                    elif not GPIO.input(4):
-                        hButton = '2'
-                    elif not GPIO.input(5):
-                        hButton = '3'
-                    elif not GPIO.input(6):
-                        hButton = '4'
-                    elif not GPIO.input(7):
-                        hButton = '5'
-                    elif not GPIO.input(8):
-                        hButton = '6'
-                    elif not GPIO.input(9):
-                        hButton = '7'
-                    elif not GPIO.input(10):
-                        vButton = "A"
-                    elif not GPIO.input(11):
-                        vButton = "B"
-                    elif not GPIO.input(12):
-                        vButton = "C"
-                    elif not GPIO.input(13):
-                        vButton = "D"
-                    elif not GPIO.input(16):
-                        vButton = "E"
-                    elif not GPIO.input(17):
-                        vButton = "F"
-                    elif not GPIO.input(18):
-                        vButton = "G"
-                    elif not GPIO.input(19):
-                        vButton = "H"    
-                    time.sleep(0.5)
+                if not GPIO.input(2):
+                    hButton = '0'   
+                elif not GPIO.input(3):
+                    hButton = '1'
+                elif not GPIO.input(4):
+                    hButton = '2'
+                elif not GPIO.input(5):
+                    hButton = '3'
+                elif not GPIO.input(6):
+                    hButton = '4'
+                elif not GPIO.input(7):
+                    hButton = '5'
+                elif not GPIO.input(8):
+                    hButton = '6'
+                elif not GPIO.input(9):
+                    hButton = '7'
+                elif not GPIO.input(10):
+                    vButton = "A"
+                elif not GPIO.input(11):
+                    vButton = "B"
+                elif not GPIO.input(12):
+                    vButton = "C"
+                elif not GPIO.input(13):
+                    vButton = "D"
+                elif not GPIO.input(16):
+                    vButton = "E"
+                elif not GPIO.input(17):
+                    vButton = "F"
+                elif not GPIO.input(18):
+                    vButton = "G"
+                elif not GPIO.input(19):
+                    vButton = "H"    
+                time.sleep(0.5)
                     
             uInput=1
             if int(uInput) == 0:
