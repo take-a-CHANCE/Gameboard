@@ -142,6 +142,7 @@ class Game(object):
                         print rcv
                     ser.flush()
                     uInput = rcv
+                    uInput = rcv[:2]
                 #     uInput = raw_input("Call your shot!(ex:C5): ")
                 #NEEDS INPUT FROM BUTTON
                 endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
