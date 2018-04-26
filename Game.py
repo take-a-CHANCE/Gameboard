@@ -134,7 +134,8 @@ class Game(object):
                     ser.flush()
                     rcv = ""
                     while len(rcv) < 2:
-                        time.sleep(.1)
+                        time.sleep(.5)
+                        print rcv
                         rcv = ser.readline()          
                     ser.flush()
                     uInput = rcv
