@@ -150,12 +150,29 @@ class Board(object):
                     ship.takeDamage()
                     hitpoints = ship.getHitpoints
                     selectShipType = ship.getType
-                    if (hitpoints == 0):
-                        print "ZERO HP"
+                    if (hitpoints != selectShipType) and (hitpoints !=0):
+                        if selectShipType == 1:
+                            gridStrip.setPixelColor(64,0,0,255)
+                        if selectShipType == 2:
+                            gridStrip.setPixelColor(65,0,0,255)
+                        if selectShipType == 3:
+                            gridStrip.setPixelColor(66,0,0,255)
+                        if selectShipType == 4:
+                            gridStrip.setPixelColor(67,0,0,255)
+                        if selectShipType == 5:
+                            gridStrip.setPixelColor(68,0,0,255)
+                        gridStrip.show()
+                    elif (hitpoints == 0):
                         if selectShipType == 1:
                             gridStrip.setPixelColor(64,0,255,0)
                         if selectShipType == 2:
                             gridStrip.setPixelColor(65,0,255,0)
+                        if selectShipType == 3:
+                            gridStrip.setPixelColor(66,0,255,0)
+                        if selectShipType == 4:
+                            gridStrip.setPixelColor(67,0,255,0)
+                        if selectShipType == 5:
+                            gridStrip.setPixelColor(68,0,255,0)
                         gridStrip.show()
                         self.__m_Ships.remove(ship)
                             
