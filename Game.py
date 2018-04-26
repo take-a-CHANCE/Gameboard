@@ -74,7 +74,9 @@ class Game(object):
             #print board and menu
             print("Player Board: \n{}".format(self.m_pBoard))
             print("Enemy Board: \n{}".format(self.m_eBoard))
-            
+            if self.__m_turn % 2 ==0:
+                gridStrip.setPixelColor(70)
+                gridStrip.show()
             uInput=1
             if int(uInput) == 0:
                 endgame = True
