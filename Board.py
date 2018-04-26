@@ -149,6 +149,7 @@ class Board(object):
                     #found ship
                     ship.takeDamage()
                     hitpoints = ship.getHitpoints
+                    if (hitpoints == 0):
                         self.__m_Ships.remove(ship)
                             
                             
