@@ -80,30 +80,52 @@ class Game(object):
             #print board and menu
             print("Player Board: \n{}".format(self.m_pBoard))
             print("Enemy Board: \n{}".format(self.m_eBoard))
-            hButton = 8
+            hButton = ""
+            vButton = ""
             if self.__m_turn % 2 == 0:
                 while True:
-                    if not GPIO.input(2):   
+                    if not GPIO.input(2):
+                        hButton = '0'   
                     elif not GPIO.input(3):
-                        print "Pressed 1"
+                        hButton = '1'
                     elif not GPIO.input(4):
-                        print "Pressed 2"
+                        hButton = '2'
                     elif not GPIO.input(5):
-                        print "Pressed 3"
+                        hButton = '3'
                     elif not GPIO.input(6):
-                        print "Pressed 4"
+                        hButton = '4'
                     elif not GPIO.input(7):
-                        print "Pressed 5"
+                        hButton = '5'
                     elif not GPIO.input(8):
-                        print "Pressed 6"
+                        hButton = '6'
                     elif not GPIO.input(9):
-                        print "Pressed 7"
-                    time.sleep(0.1)
+                        hButton = '7'
+                    elif not GPIO.input(10):
+                        vButton = "A"
+                    elif not GPIO.input(11):
+                        vButton = "B"
+                    elif not GPIO.input(12):
+                        vButton = "C"
+                    elif not GPIO.input(13):
+                        vButton = "D"
+                    elif not GPIO.input(16):
+                        vButton = "E"
+                    elif not GPIO.input(17):
+                        vButton = "F"
+                    elif not GPIO.input(18):
+                        vButton = "G"
+                    elif not GPIO.input(19):
+                        vButton = "H"    
+                    time.sleep(0.5)
+                    
             uInput=1
             if int(uInput) == 0:
                 endgame = True
-            else:               
-                uInput = raw_input("Call your shot!(ex:C5): ")
+            else:           
+                if self.__m_turn % 2 == 0:
+                    uInput = vButton + hButton 
+                else: 
+                    uInput = raw_input("Call your shot!(ex:C5): ")
                 #NEEDS INPUT FROM BUTTON
                 endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
                 #delete input
