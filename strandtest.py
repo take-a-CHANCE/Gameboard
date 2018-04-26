@@ -45,6 +45,9 @@ for i in range(0,73):
 	strip.setPixelColor(i,255,255,0)
 strip.show()
 time.sleep(5)
+strip.setPixelColor(12,255,255,255)
+strip.show()
+time.sleep(5)
 
 for i in range(0,73):
 	strip.setPixelColor(i,0,255,0)
