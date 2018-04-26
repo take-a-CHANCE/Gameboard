@@ -64,6 +64,11 @@ state=1
 def main():
     
     #drawBoard()
+    gridStrip.setPixelColor(64,255,0,0)
+    gridStrip.setPixelColor(65,255,0,0)
+    gridStrip.setPixelColor(66,255,0,0)
+    gridStrip.setPixelColor(67,255,0,0)
+    gridStrip.setPixelColor(68,255,0,0)
     theGame = Game.Game()
     theGame.run()
 
