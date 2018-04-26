@@ -164,19 +164,7 @@ class Board(object):
                     ship.takeDamage()
                     hitpoints = ship.getHitpoints
                     selectShipType = ship.getType
-                    if (hitpoints != selectShipType) and (hitpoints !=0):
-                        if selectShipType == 1:
-                            settings.gridStrip.setPixelColor(64,0,0,255)
-                        if selectShipType == 2:
-                            settings.gridStrip.setPixelColor(65,0,0,255)
-                        if selectShipType == 3:
-                            settings.gridStrip.setPixelColor(66,0,0,255)
-                        if selectShipType == 4:
-                            settings.gridStrip.setPixelColor(67,0,0,255)
-                        if selectShipType == 5:
-                            settings.gridStrip.setPixelColor(68,0,0,255)
-                        settings.gridStrip.show()
-                    elif (hitpoints == 0):
+                    if (hitpoints == 0):
                         if selectShipType == 1:
                             settings.gridStrip.setPixelColor(64,0,255,0)
                         if selectShipType == 2:
@@ -192,6 +180,36 @@ class Board(object):
                         fleetSize = len(self.__m_Ships)
                         if fleetSize == 0:
                             return True
-                        
+    
+
+
+    def light(self, y, x):
+        #iterate through fleet
+        for ship in self.__m_Ships:
+            #find ship that was hit
+            try:
+                if int(x) >= ship.getX - ship.getSize and int(x) <= ship.getX + ship.getSize:
+                    if int(y) >= ship.getY - ship.getSize and int(y) <= ship.getY + ship.getSize:
+                        #found ship
+                        hitpoints = ship.getHitpoints
+                        selectShipType = ship.getType
+                        if (hitpoints == 0):
+                            if selectShipType == 1:
+                                settings.gridStrip.setPixelColor(64,0,255,0)
+                            if selectShipType == 2:
+                                settings.gridStrip.setPixelColor(65,0,255,0)
+                            if selectShipType == 3:
+                                settings.gridStrip.setPixelColor(66,0,255,0)
+                            if selectShipType == 4:
+                                settings.gridStrip.setPixelColor(67,0,255,0)
+                            if selectShipType == 5:
+                                settings.gridStrip.setPixelColor(68,0,255,0)
+                            settings.gridStrip.show()
+                            self.__m_Ships.remove(ship)
+                            fleetSize = len(self.__m_Ships)
+                            if fleetSize == 0:
+                                return True
+            except:
+                return False
                             
                             
