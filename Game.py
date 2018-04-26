@@ -134,9 +134,10 @@ class Game(object):
                     ser.flush()
                     rcv = ""
                     while len(rcv) < 2:
-                        time.sleep(.5)
-                        print rcv
+                        time.sleep(1)
                         rcv = ser.readline()          
+                        print "test"
+                        print rcv
                     ser.flush()
                     uInput = rcv
                 #     uInput = raw_input("Call your shot!(ex:C5): ")
