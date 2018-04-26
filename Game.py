@@ -142,7 +142,7 @@ class Game(object):
                         print "test"
                         print rcv
                     ser.flush()
-                    if "END" in rcv:
+                    if "!!!!" in rcv:
                         endgame = True
                     uInput = rcv
                     uInput = rcv[:2]
@@ -155,9 +155,9 @@ class Game(object):
                 self.__m_turn += 1
             
             if endgame:
-                ser.write("END\n")
+                ser.write("!!!!\n")
                 ser.flush()
-                if (self.__m_turn % 2) == 0:
+                if (self.__m_turn % 2) == 1:
                     gridStrip.setPixelColor(71,255,0,0)
                 else:
                     gridStrip.setPixelColor(71,0,255,0)
