@@ -147,16 +147,6 @@ class Game(object):
                             if x == shipX:
                                 #hit
                                 CshipType = int(ship.getType)
-                                hitpoints = ship.getHitpoints
-                                if (hitpoints == 1):
-                                    print "I'm in one"
-                                    gridStrip.setPixelColor(64,120,120,120)
-                                    gridStrip.show()
-                                elif (hitpoints == 0):
-                                    print "I'm in zero"
-                                    gridStrip.setPixelColor(64,0,255,0)
-                                    gridStrip.show()
-                                    self.__m_Ships.remove(ship)
                 #when we hit, send ship info to Arduino
                 if CshipType == shipType['Destroyer']:
                     #Arduino.write("2".encode())
@@ -228,7 +218,3 @@ class Game(object):
                 break
             number += 1
         return number
-
-
-theGame = Game()
-theGame.run()
