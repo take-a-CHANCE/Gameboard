@@ -174,6 +174,9 @@ class Board(object):
                         if selectShipType == 5:
                             gridStrip.setPixelColor(68,0,255,0)
                         gridStrip.show()
+                        fleetSize = len(self.__m_Ships)
+                        if fleetSize == 0:
+                            return True
                         self.__m_Ships.remove(ship)
                             
                             
