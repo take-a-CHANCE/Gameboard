@@ -130,8 +130,11 @@ class Game(object):
             else:           
                 if self.__m_turn % 2 == 0:
                     uInput = vButton + hButton 
-                else: 
-                    uInput = raw_input("Call your shot!(ex:C5): ")
+                 else:
+                      rcv=ser.readline() 
+                      ser.flush()
+                      uInput = rcv
+                #     uInput = raw_input("Call your shot!(ex:C5): ")
                 #NEEDS INPUT FROM BUTTON
                 endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
                 #delete input
