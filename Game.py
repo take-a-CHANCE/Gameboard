@@ -90,6 +90,7 @@ class Game(object):
             vButton = ""
             if self.__m_turn % 2 == 0:
                 settings.gridStrip.setPixelColor(70,0,255,200)
+                settings.gridStrip.setPixelColor(69,0,0,0)
                 settings.gridStrip.show()
                 while len(hButton + vButton) < 2:
                     if not GPIO.input(2):
@@ -143,6 +144,7 @@ class Game(object):
                     trash=ser.readline()
                     while len(rcv) < 2:
                         settings.gridStrip.setPixelColor(69,0,255,200)
+                        settings.gridStrip.setPixelColor(70,0,0,0)
                         settings.gridStrip.show()
                         time.sleep(.1)
                         rcv = ser.readline()          
