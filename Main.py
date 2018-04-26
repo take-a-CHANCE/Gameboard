@@ -63,7 +63,7 @@ state=1
 #Code to create and run game
 def main():
     
-    drawBoard()
+    #drawBoard()
     theGame = Game.Game()
     theGame.run()
 
