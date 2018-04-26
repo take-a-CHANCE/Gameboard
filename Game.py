@@ -87,6 +87,8 @@ class Game(object):
             hButton = ""
             vButton = ""
             if self.__m_turn % 2 == 0:
+                gridStrip.setPixelColor(70,0,255,127)
+                gridStrip.show()
                 while len(hButton + vButton) < 2:
                     if not GPIO.input(2):
                         hButton = '0'
@@ -138,6 +140,8 @@ class Game(object):
                     rcv = ""
                     trash=ser.readline()
                     while len(rcv) < 2:
+                        gridStrip.setPixelColor(69,0,255,127)
+                        gridStrip.show()
                         time.sleep(.1)
                         rcv = ser.readline()          
                         print "test"
