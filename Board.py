@@ -8,6 +8,8 @@ import Ship
 import random
 import RPi.GPIO as GPIO
 
+import socket
+
 from dotstar import Adafruit_DotStar
 
 shipType = dict(Carrier =  5, Battleship = 4, Cruiser = 3, Submarine = 2, Destroyer = 1)

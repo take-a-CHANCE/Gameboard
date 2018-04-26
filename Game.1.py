@@ -86,7 +86,7 @@ class Game(object):
             print("Enemy Board: \n{}".format(self.m_eBoard))
             hButton = ""
             vButton = ""
-            if self.__m_turn % 2 == 0:
+            if self.__m_turn % 2 == 1:
                 while len(hButton + vButton) < 2:
                     if not GPIO.input(2):
                         hButton = '0'
@@ -129,7 +129,7 @@ class Game(object):
             if int(uInput) == 0:
                 endgame = True
             else:           
-                if self.__m_turn % 2 == 0:
+                if self.__m_turn % 2 == 1:
                     uInput = vButton + hButton 
                 else:
                     ser.flush()
@@ -163,7 +163,7 @@ class Game(object):
     def shoot(self, y, x):
         ended = False
         #player
-        if self.__m_turn % 2 == 0:
+        if self.__m_turn % 2 == 1:
             tile = self.m_eBoard.getTile(y, x)
         #enemy
         else:
@@ -183,7 +183,7 @@ class Game(object):
             tile.setTile(tileType["hit"])
             #SET LED TO HIT SHIP
             #only on player turn
-            if self.__m_turn % 2 == 0:
+            if self.__m_turn % 2 == 1:
                 #figure out what ship we hit
                 CshipType = 0
                 ended = self.m_eBoard.hit(y, x)
