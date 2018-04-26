@@ -100,6 +100,8 @@ class Board(object):
                 elif chosenTileType == 'X':
                     red = 255
                 LEDNum = i*8 + j
+                if LEDNum > 60:
+                    print LEDNum
                 gridStrip.setPixelColor(LEDNum,green,red,blue)
         rep += '\n'
         gridStrip.show()

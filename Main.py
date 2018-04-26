@@ -79,15 +79,6 @@ if __name__ == "__main__":
 #         state=1
 
 # Draws the updated gameboard
-def drawBoard():
-    for i in range(0,72):
-        gridStrip.setPixelColor(i,0x00FF00)
-    gridStrip.setPixelColor(64,255,0,0)
-    gridStrip.setPixelColor(65,255,0,0)
-    gridStrip.setPixelColor(66,255,0,0)
-    gridStrip.setPixelColor(67,255,0,0)
-    gridStrip.setPixelColor(68,255,0,0)
-    gridStrip.show()
     
 
 # Updates the status LEDs
