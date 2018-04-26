@@ -179,7 +179,7 @@ class Game(object):
     def shoot(self, y, x):
         ended = False
         #player
-        if self.__m_turn % 2 == 1:
+        if self.__m_turn % 2 == 0:
             tile = self.m_eBoard.getTile(y, x)
             self.m_pBoard.light(y, x)
         #enemy
