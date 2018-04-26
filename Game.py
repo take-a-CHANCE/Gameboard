@@ -86,7 +86,8 @@ class Game(object):
             if self.__m_turn % 2 == 0:
                 while len(hButton + vButton) < 2:
                     if not GPIO.input(2):
-                        hButton = '0'   
+                        hButton = '0'  
+                        print "WORK" 
                     elif not GPIO.input(3):
                         hButton = '1'
                     elif not GPIO.input(4):
@@ -118,6 +119,7 @@ class Game(object):
                     elif not GPIO.input(19):
                         vButton = "H"    
                     time.sleep(0.5)
+                    print (vButton + hButton)
                     
             uInput=1
             if int(uInput) == 0:
