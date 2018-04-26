@@ -130,7 +130,7 @@ class Game(object):
             else:           
                 if self.__m_turn % 2 == 0:
                     uInput = vButton + hButton 
-                 else:
+                else:
                       rcv=ser.readline() 
                       ser.flush()
                       uInput = rcv
