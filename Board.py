@@ -154,6 +154,8 @@ class Board(object):
                         print "ZERO HP"
                         if selectShipType == 1:
                             gridStrip.setPixelColor(64,0,255,0)
+                        if selectShipType == 2:
+                            gridStrip.setPixelColor(65,0,255,0)
                         gridStrip.show()
                         self.__m_Ships.remove(ship)
                             
