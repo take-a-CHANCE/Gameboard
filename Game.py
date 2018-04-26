@@ -141,18 +141,22 @@ class Game(object):
                         print "test"
                         print rcv
                     ser.flush()
+                    if "END" in rcv:
+                        endgame = True
                     uInput = rcv
                     uInput = rcv[:2]
                 #     uInput = raw_input("Call your shot!(ex:C5): ")
                 #NEEDS INPUT FROM BUTTON
-                endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
+                if not endgame:
+                    endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
                 #delete input
                 del uInput    
                 self.__m_turn += 1
             
             if endgame:
-                print("Winner is player {}!".format((self.__m_turn % 2) + 1))
-                if (self.__m_turn % 2) + 1 == 0:
+                ser.write("END\n")
+                ser.flush()
+                if (self.__m_turn % 2) == 0:
                     gridStrip.setPixelColor(71,255,0,0)
                 else:
                     gridStrip.setPixelColor(71,0,255,0)
