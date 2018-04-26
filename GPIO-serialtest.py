@@ -28,7 +28,7 @@ count=0
 
 while 1:
     if not GPIO.input(channel):
-        ser.write('Drew LEDs\n'.encode('utf-8'))
+        ser.write('A0\n'.encode('utf-8'))
         ser.flush()
         print "Wrote data\n"
         if count>71:
