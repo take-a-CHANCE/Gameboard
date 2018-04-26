@@ -58,7 +58,7 @@ class Ship(object):
 
     def lightUp(self):
         currentHP = self.__m_hitpoints
-        if currentHP == self.getType
+        if currentHP == self.getType:
             position = self.getType + 63
             gridStrip.setPixelColor(position,255,0,0)
             gridStrip.show()
