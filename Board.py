@@ -149,8 +149,12 @@ class Board(object):
                     #found ship
                     ship.takeDamage()
                     hitpoints = ship.getHitpoints
-                    ship.lightUp()
+                    selectShipType = ship.getType
                     if (hitpoints == 0):
+                        print "ZERO HP"
+                        if selectShipType == 1:
+                            gridStrip.setPixelColor(64,0,255,0)
+                        gridStrip.show()
                         self.__m_Ships.remove(ship)
                             
                             

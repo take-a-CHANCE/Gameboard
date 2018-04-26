@@ -83,10 +83,7 @@ class Game(object):
                 #NEEDS INPUT FROM BUTTON
                 endgame = self.shoot(self.letterToNumber(uInput[0]), uInput[1])
                 #delete input
-                del uInput
-                if self.__m_turn % 2 == 0:
-                    gridStrip.setPixelColor(70,255,0,0)
-                    gridStrip.show()              
+                del uInput    
                 self.__m_turn += 1
 
     def shoot(self, y, x):
