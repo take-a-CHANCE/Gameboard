@@ -184,11 +184,10 @@ class Game(object):
         #player
         if self.__m_turn % 2 == 1:
             tile = self.m_eBoard.getTile(y, x)
-            self.m_eBoard.light(y, x)
         #enemy
         else:
             tile = self.m_pBoard.getTile(y, x)
-            self.m_pBoard.light(y,x)
+            
         CtileType = tile.getType
         CtileType = CtileType[1] if len(CtileType) > 1 else 0
 #test types
@@ -243,6 +242,8 @@ class Game(object):
                     #Arduino.write("6".encode())
                     print("hit Carrier")
                 #end Arduino
+                ended = self.m_eBoard.hit(y, x)
+                self.m_eBoard.light(y, x)
                 
             if self.__m_turn % 2 == 1:
                 #figure out what ship we hit
@@ -284,6 +285,7 @@ class Game(object):
                     print("hit Carrier")
                 #end Arduino
                 ended = self.m_pBoard.hit(y, x)
+                self.m_pBoard.light(y,x)
         else:
             print("Already fired there! Obvious miss!")
         return ended
