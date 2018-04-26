@@ -25,6 +25,8 @@ chanList=[2,3,4,5,6,7,8,9,10,11,12,13,16,17,18,19]
 
 GPIO.setup(chanList, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+# Serial Comms
+ser=serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3.0)
 
 # Here's how to control the strip from any two GPIO pins:
 gridDatapin  = 20
@@ -118,6 +120,9 @@ class Game(object):
                     elif not GPIO.input(19):
                         vButton = "H"    
                     time.sleep(0.1)
+                #inform other board of move
+                ser.write(hButton+vButton+'\n')
+                ser.flush()
                     
             uInput=1
             if int(uInput) == 0:
