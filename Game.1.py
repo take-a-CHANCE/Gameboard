@@ -243,7 +243,6 @@ class Game(object):
                     #Arduino.write("6".encode())
                     print("hit Carrier")
                 #end Arduino
-                ended = self.m_eBoard.hit(y, x)
                 
             if self.__m_turn % 2 == 1:
                 #figure out what ship we hit
