@@ -167,6 +167,7 @@ class Board(object):
                     if (hitpoints == 0):
                         self.__m_Ships.remove(ship)
                         fleetSize = len(self.__m_Ships)
+                        print self.__m_Ships
                         if fleetSize == 0:
                             return True
     
