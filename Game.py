@@ -225,7 +225,6 @@ class Game(object):
                 if CshipType == shipType['Destroyer']:
                     #Arduino.write("2".encode())
                     print("hit Destroyer")
-                    self.m_eBoard.light(y,x)
                 if CshipType == shipType['Submarine']:
                     #Arduino.write("3".encode())
                     print("hit Submarine")
