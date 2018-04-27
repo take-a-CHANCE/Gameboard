@@ -244,7 +244,7 @@ class Game(object):
                     print("hit Carrier")
                 #end Arduino
                 ended = self.m_eBoard.hit(y, x)
-            if self.__m_turn % 2 == 1:
+            if self.__m_turn % 2 == 0:
                 #figure out what ship we hit
                 CshipType = 0
 
