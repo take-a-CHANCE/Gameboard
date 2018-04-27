@@ -61,21 +61,9 @@ class Board(object):
             
             #Ship Position presets for player and 'enemy'
             if socket.gethostname() == boardHost[0]:
-                r = random.uniform(0,2)
-                if r == 0:
-                    aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
-                elif r ==1:
-                    aiships = [(3,2,"v"), (0,0,"h"), (5,0,"v"), (3,6,"h"), (6,7,"v")]
-                else:
-                    aiships = [(3,0,'h'), (4,7,'v'), (6,1,'h'), (4,1,'v'), (1,5,'v')]
+                aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
             elif socket.gethostname() == boardHost[1]:
-                r = random.uniform(0,2)
-                if r == 0:
-                    aiships = [(0,0,"v"), (0,2,"h"), (7,0,"h"), (3,6,"h"), (0,7,"v")]
-                elif r == 1:
-                    aiships = [(3,2,"v"), (0,0,"h"), (5,0,"v"), (3,6,"h"), (6,7,"v")]
-                else:
-                    aiships = [(3,0,'h'), (4,7,'v'), (6,1,'h'), (4,1,'v'), (1,5,'v')]
+                aiships = [(3,0,'h'), (4,7,'v'), (6,1,'h'), (4,1,'v'), (1,5,'v')]
 
             
             while len(shipType) > 0:
